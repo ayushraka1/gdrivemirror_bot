@@ -51,7 +51,7 @@ def help(bot,update):
 
 @run_async
 def donate(bot,update):
-	keyboard = [[telegram.InlineKeyboardButton("PayPal", url="www.paypal.me/AtulKadian")],
+	keyboard = [[telegram.InlineKeyboardButton("PayPal", url="www.paypal.me/Rakapal")],
 		[telegram.InlineKeyboardButton("PayTM", url="https://telegra.ph/Like-my-work--Buy-me-some-snacks-01-25")]]
 	reply_markup = telegram.InlineKeyboardMarkup(keyboard)
 	update.message.reply_text(Text.DONATE, reply_markup=reply_markup)
