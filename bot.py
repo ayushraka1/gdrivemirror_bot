@@ -125,19 +125,6 @@ def start_bot(bot, update):
 						sent_message.edit_text(Text.MAXLIMITEXCEEDED)
 				else:
 					sent_message.edit_text(Text.ISNOT_DOWNLOADABLE,parse_mode=telegram.ParseMode.HTML)
-		else:
-			if download.is_downloadable(url):
-				size = download.check_filesize(url)/1048576
-				if size <= 10000:
-					raw_file = download.download(url, None)
-					bot.send_chat_action(chat_id=update.message.chat_id, action=telegram.ChatAction.TYPING)
-					sent_message.edit_text(Text.UPLOADING_GD)
-					dwnld_url = upload.upload(raw_file)
-					sent_message.edit_text(Text.DONE.format(raw_file, size, dwnld_url),parse_mode=telegram.ParseMode.HTML)
-				else:
-					sent_message.edit_text(Text.MAXLIMITEXCEEDED)
-			else:
-				sent_message.edit_text(Text.ISNOT_DOWNLOADABLE,parse_mode=telegram.ParseMode.HTML)
 	elif("help" not in url and "start" not in url and "broadcast" not in url and "donate" not in url and "add_user" not in url and "revoke_user" not in url):
 		bot.send_chat_action(chat_id=update.message.chat_id, action=telegram.ChatAction.TYPING)
 		time.sleep(1)
